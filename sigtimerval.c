@@ -193,6 +193,9 @@ int reset_sigtimerspec_tm_only(struct sigtimerspec *s_tmvl,
 }
 
 
+/* функцию требуется вызывать, когда таймер уже не пригодится,
+ * для очистки памяти
+ * в случае, если таймер сейчас запущен, он будет остановлен */
 int unset_sigtimerspec(struct sigtimerspec *s_tmvl) {
     if (s_tmvl == NULL)
         return -1;
